@@ -1,76 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Navbar with Tailwind</title>
-</head>
-<body>
   <!-- Navbar -->
-  <nav class="bg-gray-800 text-white">
-    <div class="container mx-auto flex justify-between items-center px-4 py-3">
-      <!-- Logo -->
-      <div class="text-2xl font-bold">
-        <a href="#">Portfolio</a>
-      </div>
-
-      <!-- Hamburger Menu Button -->
-      <button
-        id="menu-toggle"
-        class="text-white block lg:hidden focus:outline-none"
-      >
-        <svg
-          class="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"
-          ></path>
-        </svg>
-      </button>
-
-      <!-- Nav Links -->
-      <div
-        id="menu"
-        class="hidden lg:flex space-x-6 items-center"
-      >
-        <a href="#home" class="hover:text-gray-300">Home</a>
-        <a href="#skill" class="hover:text-gray-300">Skill</a>
-        <a href="#about" class="hover:text-gray-300">About</a>
-        <a href="#projects" class="hover:text-gray-300">Projects</a>
-        <a href="#contact" class="hover:text-gray-300">Contact</a>
-      </div>
+<nav class="flex items-center justify-between p-6 bg-gray-900 shadow lg:px-8" aria-label="Global">
+    <!-- Logo -->
+    <div class="flex space-x-2">
+      <a href="#">
+        <span class="sr-only">หน้าหลัก</span>
+        <img class="h-16 w-auto" src="/src/image/Logoport.png" alt="โลโก้">
+      </a>
     </div>
-
-    <!-- Mobile Menu -->
-    <div
-      id="mobile-menu"
-      class="hidden lg:hidden bg-gray-700 text-white space-y-2 px-4 py-2"
-    >
-      <a href="#home" class="block hover:text-gray-300">Home</a>
-      <a href="#skill" class="hover:text-gray-300">Skill</a>
-      <a href="#about" class="block hover:text-gray-300">About</a>
-      <a href="#projects" class="block hover:text-gray-300">Projects</a>
-      <a href="#contact" class="block hover:text-gray-300">Contact</a>
+  
+    <!-- Desktop Menu -->
+    <div class="hidden lg:flex lg:gap-x-6">
+      <a href="#about" class="text-sm font-semibold text-gray-300 hover:text-indigo-400">เกี่ยวกับ</a>
+      <a href="#skills" class="text-sm font-semibold text-gray-300 hover:text-indigo-400">ทักษะ</a>
+      <a href="#projects" class="text-sm font-semibold text-gray-300 hover:text-indigo-400">ผลงาน</a>
+      <a href="#contact" class="text-sm font-semibold text-gray-300 hover:text-indigo-400">ติดต่อ</a>
+    </div>
+  
+    <!-- Hamburger Menu Button -->
+    <div class="lg:hidden">
+      <button id="menu-button" class="text-3xl text-gray-300 focus:outline-none">&#9776;</button>
     </div>
   </nav>
-
+  
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden absolute top-16 left-0 w-full bg-gray-800 shadow-md z-50">
+    <div class="space-y-2 px-6 py-4">
+      <a href="#about" class="block text-base font-medium text-gray-300 hover:text-indigo-400">เกี่ยวกับ</a>
+      <a href="#skills" class="block text-base font-medium text-gray-300 hover:text-indigo-400">ทักษะ</a>
+      <a href="#projects" class="block text-base font-medium text-gray-300 hover:text-indigo-400">ผลงาน</a>
+      <a href="#contact" class="block text-base font-medium text-gray-300 hover:text-indigo-400">ติดต่อ</a>
+    </div>
+  </div>
+  
   <script>
-    // Toggle Menu
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+  
+    menuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
     });
   </script>
-</body>
-</html>
